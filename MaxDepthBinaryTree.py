@@ -22,7 +22,7 @@ class Solution:
         else:
             return max( self.dfs(node.left, depth+1), self.dfs(node.right, depth+1) )
         
-
+    # Problem 104
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         # maximum depth:  the number of nodes along the longest path 
         # from the root node down to the farthest leaf node.
