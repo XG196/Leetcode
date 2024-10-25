@@ -1,39 +1,29 @@
 class Solution:
 
     def check(self, s1, s2, s3, i, j, k, check_s1):
-        
+
         # check finish
         if ( k == len(s3) and  i == len(s1) and j == len(s2) ):
             return True
-
+        
         # simple optimize
         if i == len(s1):
             return s2[j:] == s3[k:]
         if j == len(s2):
             return s1[i:] == s3[k:]
-            
-        # check current character
-        if  check_s1:
 
-            if i < len(s1) and s1[i] == s3[k]:   
-                if self.check(s1, s2, s3, i+1, j, k+1, not check_s1):
-                    return True
-                else:
-                    return self.check(s1, s2, s3, i+1, j, k+1, check_s1)
-
+        # check s1 and s2 interleave s3
+        if check_s1:
+            if s1[i] == s3[k]:
+                return self.check(s1, s2, s3, i+1, j, k+1, check_s1) or self.check(s1, s2, s3, i+1, j, k+1, not check_s1)
             else:
-                return False
-            
+                return False 
         else:
-            if j < len(s2) and s2[j] == s3[k]:   
-                if self.check(s1, s2, s3, i, j+1, k+1, not check_s1):
-                    return True
-                else:
-                    return self.check(s1, s2, s3, i, j+1, k+1, check_s1)
+            if s2[j] == s3[k]:
+                return self.check(s1, s2, s3, i, j+1, k+1, check_s1) or self.check(s1, s2, s3, i, j+1, k+1, not check_s1)
             else:
-                return False
-    
-            
+                return False 
+
 
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
 
