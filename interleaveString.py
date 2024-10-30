@@ -1,7 +1,7 @@
 class Solution:
 
     def check(self, s1, s2, s3, i, j, k, check_s1):
-
+    
         # check finish
         if ( k == len(s3) and  i == len(s1) and j == len(s2) ):
             return True

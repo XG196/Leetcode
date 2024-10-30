@@ -1,6 +1,6 @@
 class Solution:
     
-    
+
     def getPmt(self, s, i, cons, list_of_pmt):
 
         if i == len(s):
@@ -24,7 +24,7 @@ class Solution:
     def letterCasePermutation(self, s: str):
 
         # return a list of all possible strings
-        list_of_pmt = []
+        list_of_pmt = []   # can append inside other functions
         self.getPmt(s.lower(), 0, "", list_of_pmt)
 
         return list_of_pmt
