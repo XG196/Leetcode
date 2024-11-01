@@ -18,7 +18,7 @@ class Solution:
     def subsetsWithDup(self, nums: list[int]):
 
         nums.sort()
-        self.output = []
+        self.output = [] 
         self.output.append([])
         self.n = len(nums)
         for stoplevel in range(self.n):
